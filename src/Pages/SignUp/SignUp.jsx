@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import { Formik, Form, ErrorMessage } from "formik";
-import { SignUpWrapper,PageWrapper,
-  Title,
+import { useNavigate } from "react-router-dom";
+import { SignUpWrapper,
   Label,
   Input,
   StyledInlineErrorMessage,
   Submit,
-  CodeWrapper,
   FormWrapper, } from './SignUpStyles.js'
 import * as Yup from "yup";
+import { createUser } from "../../axios/axios-user.js"
 
 const SignUp = () => {
-  
+  const navigate = useNavigate();
   const [formValues, setFormValues] = useState();  
-  
+  const regEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/; 
 
   return (
     <SignUpWrapper>
@@ -27,19 +27,24 @@ const SignUp = () => {
         initialValues={{
           fullname: "",
           email: "",
+          password: "",
         }}
         validationSchema={Yup.object().shape({
           fullname: Yup.string()
             .min(2, "Your name is too short")
             .required("Please enter your full name"),
           email: Yup.string()
-            .email("The email is incorrect")
+            .matches(regEmail, "The email is incorrect")
             .required("Please enter your email"),
           password: Yup.string()
+            .min(6, "Minimum of 6 characters")
             .required("Please create some password"),
         })}
-        onSubmit={(values, actions) => {
-          console.log(values);
+        onSubmit={async (values, actions) => {
+          const user = await createUser(values.fullname, values.email, values.password);
+          actions.resetForm();
+          console.log(user);
+         
           setFormValues(values);
 
           const timeOut = setTimeout(() => {

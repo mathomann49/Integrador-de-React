@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
-import { NavBarContainerStyled, StyledButton, CartContainerStyled, MenuContainerStyled } from "./NavBarStyles";
+import { NavBarContainerStyled, 
+  StyledButton, 
+  CartContainerStyled, 
+  MenuContainerStyled,
+  LoginModal } from "./NavBarStyles";
 import { SlBasket } from "react-icons/sl";
-import { FaBars, FaRegWindowClose } from "react-icons/fa";
+import { FaBars, FaRegWindowClose, FaUser, FaUserSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 // import { DiHtml5Connectivity } from "react-icons/di";
 import { GiOctopus } from "react-icons/gi";
@@ -38,6 +42,10 @@ const NavBar = () => {
           <MenuContainerStyled onClick={() => setMobile(!Mobile)}>
             {Mobile? <FaRegWindowClose style={{color: "blueviolet", fontSize: "35px", paddingtop: "20px", cursor: "pointer"}}/> : <FaBars style={{color: "blueviolet", fontSize: "35px", paddingtop: "20px", cursor: "pointer"}}/>} 
           </MenuContainerStyled>
+          <LoginModal>
+            <span><FaUser /> Miguel Thomann</span>
+            <span className='close'><FaUserSlash /> Sign off</span>
+          </LoginModal>
       </div>  
       {OpenCart && <Cart onClick= {() => dispatch(toggleHiddenCart())}/>}    
     </NavBarContainerStyled>

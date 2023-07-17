@@ -103,4 +103,23 @@ export const StyledButton = styled.button`
     }
     `
     
+export const LoginModal = styled.div`
+position: fixed;
+display: flex;
+flex-direction: column;
+width: 160px;
+color: black;
+z-index: 1000;
+right: 560px;
+top: 18px;
+gap: 5px;
 
+.close {
+    color: black;
+    cursor: pointer;
+    &:hover {
+            color: white;
+            text-decoration: underline;
+        } 
+}
+`

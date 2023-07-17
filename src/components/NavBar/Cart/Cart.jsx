@@ -68,9 +68,9 @@ const Cart = ({image, title, category, price, quantity, id}) => {
                 </div>
                  
                 <div className="shopTotal">
-                    <p className="Shipp">Sub-Total:.....$ <b>{subTotal}</b></p>
-                    <p className="Shipp">shipping Cost:.$ <b>{shippingCost}.00</b></p>
-                    <p className="Shipp">Total:.........$ <b>{subTotal + shippingCost}</b></p>      
+                    <p className="Shipp">Sub-Total:.....$ <b>{(subTotal + 0.00).toFixed(2)}</b></p>
+                    <p className="Shipp">shipping Cost:.$ <b>{(shippingCost + 0.00).toFixed(2)}</b></p>
+                    <p className="Shipp">Total:.........$ <b>{(subTotal + shippingCost).toFixed(2)}</b></p>      
                 </div>
                 
                 

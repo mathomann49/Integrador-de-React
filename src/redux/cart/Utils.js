@@ -1,4 +1,5 @@
 
+export const BASE_URL = `https://nucbaz-api.vercel.app/`
 export const SHIPPING_COST = 5.00;
 
 export const addItemToCart = (cartItems, product) => {

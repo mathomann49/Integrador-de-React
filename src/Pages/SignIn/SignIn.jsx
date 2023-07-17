@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { Formik, Form, ErrorMessage } from "formik";
 import { SignInWrapper, StyledLinkAccount } from './SignInStyles'
-import { SignUpWrapper,PageWrapper,
-  Title,
+import {
   Label,
   Input,
   StyledInlineErrorMessage,
   Submit,
-  CodeWrapper,
   FormWrapper, } from '../SignUp/SignUpStyles'
 import * as Yup from "yup";
 
@@ -35,7 +33,7 @@ const SignIn = () => {
             .email("The email is incorrect")
             .required("Please enter your email"),
           password: Yup.string()
-            .required("Please create some password"),
+            .required("Please enter your password"),
         })}
         onSubmit={(values, actions) => {
           console.log(values);

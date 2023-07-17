@@ -4,22 +4,29 @@ import persistStore from "redux-persist/lib/persistStore";
 import storage from "redux-persist/lib/storage"
 import productReducer from "./products/productsSlice";
 import cartReducer from "./cart/CartSlice";
+import userReducer from "./user/user"
+
 
 const reducers = combineReducers({
     products: productReducer,
     cart: cartReducer,
+    user: userReducer,
 });
 
 const persistConfig = {
     key: "root",
     storage,
-    whitelist: ["cart"],
+    whitelist: ["cart", "user"],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
 
 export const store = configureStore({
     reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) => 
+    getDefaultMiddleware({
+        serializableCheck: false,
+    }),
 });
 
 export const persistor = persistStore(store);

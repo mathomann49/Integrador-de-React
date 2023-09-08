@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import FilteredPropsInputField from "../SignUp/FilteredPropsInputField";
+// import FilteredPropsInputField from "../SignUp/FilteredPropsInputField";
 
 export const CheckOutWrapper = styled.div`
 display: flex;
@@ -17,6 +17,7 @@ h1 {
     border-radius: 30px;
     width: fit-content;
     align-self: center;
+  }  
 
 .container {
     /* margin-top: 115px; */
@@ -48,22 +49,30 @@ h1 {
 }
 .payMethods {
     display: flex;
+    align-items: center;
     flex-direction: column;
-    width: 300px;
+    width: 200px;
 }  
 .divCard h3 {
     padding: 0;
 }
 .divCard {
     display: flex;
+    align-items: center;
     width: 100%;
     border: 1px solid black;
 }
 .payimage {
-   padding-top: 50px;
-    
+     padding-top: 50px;
+     transform: scale(1, 1);
+     transition: 1s;
+
+   & :hover {
+     transform: scale(1.5, 1.5);
+  } 
 }
-}
+
+
 
 .container {
     margin-top: 5px;
@@ -82,6 +91,7 @@ h1 {
 .picture {
     width: 350px;
     height: 400px;
+   
 }
 .cost {
     padding: 5px 10px;

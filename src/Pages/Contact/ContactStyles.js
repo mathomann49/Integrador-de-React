@@ -3,8 +3,9 @@ import styled from "styled-components";
 export const ContactContainer = styled.div`
 padding-top: 110px;
 display: flex;
-justify-content: center;
-align-items: center;
+/* justify-content: center;
+align-items: center; */
+margin: auto;
 flex-direction: column;
 gap: 20px;
 .outstanding {
@@ -33,19 +34,17 @@ h1 {
 .view, 
 .view ul {
     padding-top: 10px;
-    @media screen and (max-Width: 760px) {
-        align-items: center;
-        justify-content: center;
-    }
+    
 }
 .header {
     display: flex;
     justify-content: center;
-    max-width: 900px;
+    align-items: center;
+    width: 750px;
     gap: 30px;
-    @media screen and (max-Width: 760px) {
-        flex-direction: column;
-    }
+    align-self: center;
+    justify-self: center;
+    
 }
 
 .pform {
@@ -79,4 +78,59 @@ button:hover {
     border: 2px #0683db;
     transition: background-color 0.5s ease-in;
 }
+
+@media (max-width: 1000px) {
+    padding-right: 100px;
+}
+@media (max-width: 830px) {
+
+    .header {
+        flex-direction: column;
+        width: 90%;
+        align-items: center;
+        justify-items: center;
+        padding-bottom: 30px;
+    }
+
+    .view,
+    .view p
+    .header form {
+        width: 90%;  
+    }
+    .view p {
+        width: 100%;
+        
+    }
+    .view ul {
+        margin: auto;
+        width: 200px;
+       
+    }
+}
+
+@media (max-width: 640px) {
+    /* padding: 10px; */
+    padding-right: 0;
+    padding-left: 0;
+    .header {
+        width: 90%;
+    }
+    .header form,
+    .pform label,
+    .pform input,
+    .header form textarea,
+    button {
+        width: 90%;
+    } 
+
+    .header form textarea {
+        width: 88%;
+    } 
+
+    .view p {
+        width: 90%;
+        
+    }
+}
+
 `

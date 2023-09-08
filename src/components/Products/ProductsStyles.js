@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ProductsWrapper = styled.div`
-padding-top: 50px;
+padding: 50px 0;
 display: flex;
 flex-direction: column;
 width: 100%;
@@ -22,6 +22,7 @@ h1 {
 }
 `
 export const CategoriesContainer = styled.div`
+width: 80%;
 display: flex;
 flex-wrap: wrap;
 justify-content: space-around;
@@ -38,7 +39,7 @@ row-gap: 1.5rem;
 /* column-gap: -3.5rem; */
 width: 100%;
 max-width: 1300px;
-cursor: pointer;
+/* cursor: pointer; */
 /* padding: 1rem 0; */
 `
 export const CardProducts = styled.div`
@@ -54,11 +55,15 @@ img {
 .cardBody {
     display: flex;
     flex-direction: column;
-    padding: 0 10px;
+    padding: 0 10px 10px 10px;
     justify-content: flex-start;
     color: #212F3D;
 }
 
+h5 {
+    font-weight: 600;
+    font-size: 18px;
+}
 h6 {
     
     font-size: 13px;
@@ -67,6 +72,21 @@ h6 {
 p {
     font-weight: bold;
     font-size: 18px;
+}
+
+button {
+    width: 90%;
+    font-weight: bold;
+    background: #0683db;
+    border-radius: 3px;
+    padding: 10px 0;
+    cursor: pointer;
+    /* margin: 20px;  */
+}
+button:hover {
+    background-color: wheat;
+    border: 2px #0683db solid;
+    transition: background-color 0.5s ease-in;
 }
 `
 
@@ -85,7 +105,7 @@ export const StyledButton = styled.button`
     background: pink;
     color: black;
 }
-    ` 
+` 
 export const ButtonsContainer = styled.div`
 display: flex;
 justify-content: center;

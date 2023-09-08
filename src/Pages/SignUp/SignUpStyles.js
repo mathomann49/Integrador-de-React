@@ -58,12 +58,12 @@ display: flex;
     align-items: center;
     margin: auto;
     flex-direction: column;
-    width: 300px;
+    width: 280px;
 `
 
 export const Label = styled.label`
   /* margin-top: 5rem; */
-  width: 300px;
+  width: 280px;
   font-weight: bold;
 `;
 
@@ -75,7 +75,7 @@ export const Input = styled(FilteredPropsInputField)`
   line-height: 1.5rem;
   font-style: normal;
   font-weight: 400;
-  width: 300px;
+  width: 280px;
   /* margin-top: 0.5rem; */
   padding: 0.5rem 0.5rem;
 

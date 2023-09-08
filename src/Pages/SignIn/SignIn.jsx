@@ -8,39 +8,47 @@ import {
   Submit,
   FormWrapper, } from '../SignUp/SignUpStyles'
 import * as Yup from "yup";
+import { signInUser } from "../../axios/axios-user";
+import { setCurrentUser } from "../../redux/user/user";
+import { useDispatch } from "react-redux";
+import useRedirect from "../../Hooks/useRedirect";
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
-
+  useRedirect("/");
+  const dispatch = useDispatch();
   const [formValues, setFormValues] = useState();
 
   return (
     <SignInWrapper>
       <div>
         <h1>Sign In</h1>
-        {/* <hr></hr> */}
       </div>
       
       <Formik
         initialValues={{
-          fullname: "",
           email: "",
+          password: "",
         }}
         validationSchema={Yup.object().shape({
-          fullname: Yup.string()
-            .min(2, "Your name is too short")
-            .required("Please enter your full name"),
           email: Yup.string()
             .email("The email is incorrect")
             .required("Please enter your email"),
           password: Yup.string()
             .required("Please enter your password"),
         })}
-        onSubmit={(values, actions) => {
-          console.log(values);
+        onSubmit={async (values) => {
+          const user = await signInUser(values.email, values.password);
+          if (user) {
+            dispatch(setCurrentUser({
+              ...user.usuario,
+              token: user.token
+            }))
+          }
           setFormValues(values);
 
           const timeOut = setTimeout(() => {
-            actions.setSubmitting(false);
+            // actions.setSubmitting(false);
 
             clearTimeout(timeOut);
           }, 1000);
@@ -80,7 +88,7 @@ const SignIn = () => {
                   <Input
                     type="password"
                     name="password"
-                    placeholder="create a password"
+                    placeholder="enter the password"
                     valid={touched.password && !errors.password}
                     error={touched.password && errors.password}
                   />
@@ -90,7 +98,7 @@ const SignIn = () => {
                     {errors.password}
                   </StyledInlineErrorMessage>
                 )}
-                <StyledLinkAccount>Don't have an account? <a href="#">Sign up</a></StyledLinkAccount>
+                <StyledLinkAccount>Don't have an account? <Link to= "/SignUp"><span>sign up</span></Link></StyledLinkAccount>
                 <Submit type="submit" onSubmit={handleSubmit} disabled={!isValid || isSubmitting}>
                   {isSubmitting ? `Submiting...` : `Submit`}
                 </Submit>

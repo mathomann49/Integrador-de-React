@@ -17,7 +17,7 @@ export const addItemToCart = (cartItems, product) => {
         ...cartItems,
         {
             ...product,
-            quantity : 1,
+            quantity: 1,
         },
     ];
 };

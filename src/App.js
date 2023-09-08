@@ -10,6 +10,8 @@ import ProductsP from "./Pages/ProductsP/Products";
 import SignUp from "./Pages/SignUp/SignUp";
 import ProductsDetails from "./Pages/ProductsP/ProductsDetails";
 import CheckOut from "./Pages/CheckOut/CheckOut";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import PurchaseMade from "./Pages/PurchaseMade/PurchaseMade";
 
 function App() {
   return ( 
@@ -23,7 +25,13 @@ function App() {
         <Route path= "/Contact" element={<Contact />}/>
         <Route path= "/SignIn" element={<SignIn />}/>
         <Route path= "/SignUp" element={<SignUp />}/>
-        <Route path= "/CheckOut" element={<CheckOut />}/>
+        <Route path= "/PurchaseMade" element={<PurchaseMade />}/>
+
+        <Route 
+        path= "/CheckOut" 
+        element={ <ProtectedRoute redirectTo={"/SignIn"}>
+                    <CheckOut />
+                  </ProtectedRoute>}/>
         <Route path= "*" element={<NotFound />}/>
       </Routes>
     

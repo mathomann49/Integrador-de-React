@@ -4,21 +4,21 @@ import { HomeWrapper}  from "./HomeStyles";
 // import { FaInstagram, FaFacebookF, FaTwitter, FaLinkedinIn} from "react-icons/fa";
 import  Layaut  from "../../components/Layout/Layaut";
 import  Hero  from "../../components/Hero/Hero";
-import Categories from "../../components/Categories/Categories";
+// import Categories from "../../components/Categories/Categories";
 import Products from '../../components/Products/Products';
 import Footer from '../../components/Footer/Footer';
 
 const Home = () => {
   return (
+    <>
     <HomeWrapper>
       <Layaut>
         <Hero />
-        {/* <Categories /> */}
         <Products />
       </Layaut>
       <Footer />
     </HomeWrapper>
-      
+    </>  
   )
 }
 

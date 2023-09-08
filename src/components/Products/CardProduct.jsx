@@ -4,10 +4,12 @@ import { useSelector } from 'react-redux';
 import { Link  } from "react-router-dom";
 
 const CardProduct = () => {
+  
   const products = useSelector((state) => state.products.products);
   // console.log(products);
   const renderList = products.map((product) => {
     const {id, title, image, price, category} = product;
+    
     return (
     <CardProducts key={id}>
       <Link to={`/Products/${id}`}>
@@ -15,7 +17,7 @@ const CardProduct = () => {
         <div className='cardBody'>
             <h5>{title}</h5>
             <h6><b>Category:</b> {category}</h6>
-            <p>S{price}</p>
+            <p>$ {price}</p>
             {/* <StyledButton>see more</StyledButton> */}
         </div>
       </Link>

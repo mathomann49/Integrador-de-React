@@ -10,7 +10,7 @@ position: fixed;
 display: flex;
 justify-content: space-between;
 align-items: center;
-padding: 1rem 4rem;
+padding: 1rem 1rem;
 /* padding-right: 5rem; */
 .logo h1 {
     color:  blueviolet;
@@ -24,7 +24,8 @@ padding: 1rem 4rem;
     color:  blueviolet;
     /* margin-right: 70px; */
 .container {
-    /* margin-right: 5rem; */
+    width: 100%;
+    padding-right: 70px;
 }        
     } 
     .links {
@@ -49,10 +50,22 @@ padding: 1rem 4rem;
             font-weight: bold;
             display: block;
             left: 0;
-            top: 10%;
+            top: 55px;
             transition: all 0.5s ease-in-out;
             width: 180px;
             background-color: #EBDEF0;
+            padding-bottom: 15px;
+        }
+    }
+
+    @media (max-width: 570px) {
+        .logo h1 {
+            font-size: 20px;
+        }
+    }
+    @media (max-width: 350px) {
+        .logo h1 {
+            font-size: 17px;
         }
     }
 `
@@ -97,22 +110,31 @@ export const StyledButton = styled.button`
     export const MenuContainerStyled = styled.div`
     display: none;
     cursor: pointer;
-    margin-right: 70px;
+    /* margin-right: 70px; */
+    padding-right: 50px;
     @media (max-width: 998px) {
         display: flex;
+    }
+    @media (max-width: 570px) {
+        height: 40px;
+        width: 30px;
     }
     `
     
 export const LoginModal = styled.div`
-position: fixed;
+// position: fixed;
 display: flex;
 flex-direction: column;
-width: 160px;
+width: 100px;
 color: black;
 z-index: 1000;
-right: 560px;
-top: 18px;
+// right: 560px;
+padding-top: 10px;
 gap: 5px;
+
+span {
+    font-size: 16px;  
+}
 
 .close {
     color: black;

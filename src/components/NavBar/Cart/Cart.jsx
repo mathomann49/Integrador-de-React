@@ -1,24 +1,20 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
-import { CartWrapper, CartItemContainer } from "./CartStyles";
-import { addToCart, clearCart, removeFromCart, toggleHiddenCart } from "../../../redux/cart/CartSlice";
+import { CartWrapper} from "./CartStyles";
+import { clearCart, toggleHiddenCart } from "../../../redux/cart/CartSlice";
 import { useDispatch, useSelector } from "react-redux";
+import CartItemDisplay from './CartItemDisplay';
 
 
-const Cart = ({image, title, category, price, quantity, id}) => {
-    const {cartItems, shippingCost} = useSelector(state => state.cart); 
+const Cart = () => {
+    const tab = '\u00A0\u00A0\u00A0';
+    const {cartItems, shippingCost} = useSelector(state => state.cart);
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    
 
     const subTotal = cartItems.reduce((acc,item) => {
         return (acc += item.price * item.quantity)
-    }, 0);
-
-// const increaser = () => {
-//     return (item.quantity == item.quantity + 1)
-// }
-    
+    }, 0);  
 
   return (
     <CartWrapper>
@@ -39,27 +35,7 @@ const Cart = ({image, title, category, price, quantity, id}) => {
                     cartItems.length ? (
                         cartItems.map((item) => {
                             console.log(item);
-                            return <CartItemContainer {...item} key={item.id}>
-                                <div className="CartItem">
-                                    <div className='itemImage'>
-                                        <img src={item.image} alt={item.title}/>  
-                                    </div>
-                                        <div className="itemData">
-                                            <div className='itemDataData'>
-                                                <p className='itemTitle'>{item.title}</p>
-                                                {/* <p className="itemCategory">Category: <span>{item.category}</span></p> */}
-                                                 <span className="itemPrice">$ {item.price}</span> 
-                                            </div>
-                                            <div className="itemQuantifier">
-                                                <span className="increase" > + </span>
-                                                <span className="itemUnits">{item.quantity}</span>
-                                                <span className="decrease" onClick={() => {
-                                                    dispatch(removeFromCart(id))
-                                                }}> - </span>
-                                            </div>
-                                        </div>
-                                        </div>
-                            </CartItemContainer>         
+                            return <CartItemDisplay {...item} key={item.id}/>                        
                         })
                     ) : (
                         <p>Cart is empty</p>
@@ -68,9 +44,9 @@ const Cart = ({image, title, category, price, quantity, id}) => {
                 </div>
                  
                 <div className="shopTotal">
-                    <p className="Shipp">Sub-Total:.....$ <b>{(subTotal + 0.00).toFixed(2)}</b></p>
-                    <p className="Shipp">shipping Cost:.$ <b>{(shippingCost + 0.00).toFixed(2)}</b></p>
-                    <p className="Shipp">Total:.........$ <b>{(subTotal + shippingCost).toFixed(2)}</b></p>      
+                    <p className="Shipp">Sub-Total:.......$ <b>{(subTotal + 0.00).toFixed(2)}</b></p>
+                    <p className="Shipp">shipping Cost:.${tab}<b>{(shippingCost + 0.00).toFixed(2)}</b></p>
+                    <p className="Shipp">Total:...............$ <b>{(subTotal + shippingCost).toFixed(2)}</b></p>      
                 </div>
                 
                 

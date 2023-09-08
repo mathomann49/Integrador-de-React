@@ -43,7 +43,8 @@ const SignUp = () => {
         onSubmit={async (values, actions) => {
           const user = await createUser(values.fullname, values.email, values.password);
           actions.resetForm();
-          console.log(user);
+          if (user) { navigate("/SignIn")}
+          // console.log(user);
          
           setFormValues(values);
 

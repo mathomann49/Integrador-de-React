@@ -44,7 +44,7 @@ const Contact = () => {
             </p>
             <p className='pform'>
               <label>Additional Info*</label>
-              <textarea name='AdditionalInfo' rows={5}></textarea> 
+              <textarea name='additionalInfo' rows={5}></textarea> 
             </p>
             <button type='submit'>SEND</button>
           </form>

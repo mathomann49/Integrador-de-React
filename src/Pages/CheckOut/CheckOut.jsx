@@ -1,22 +1,21 @@
 import React, { useState } from 'react'
-import { CheckOutWrapper, CartItemContainer } from "./CheckOutStyles";
+import CartItemDisplay from '../../components/NavBar/Cart/CartItemDisplay';
+import { CheckOutWrapper } from "./CheckOutStyles";
 import { Formik, Form, ErrorMessage } from "formik";
 import paymentsmethods from "../../pay_methods.png";
 import { useDispatch, useSelector } from "react-redux";
-import { SignUpWrapper,PageWrapper,
-  Title,
-  Label,
-  Input,
-  StyledInlineErrorMessage,
-  Submit,
-  CodeWrapper,
-  FormWrapper, } from '../SignUp/SignUpStyles'
+import { useNavigate } from "react-router-dom";
+import { Label, Input, StyledInlineErrorMessage, Submit, FormWrapper } from '../SignUp/SignUpStyles'
 import * as Yup from "yup";
+import { clearCart } from "../../redux/cart/CartSlice";
 
 const CheckOut = () => {
+    const tab = '\u00A0\u00A0\u00A0';
     const {cartItems, shippingCost} = useSelector(state => state.cart); 
     const dispatch = useDispatch();
     const [formValues, setFormValues] = useState();
+    const navigate = useNavigate();
+    
 
     const subTotal = cartItems.reduce((acc,item) => {
       return (acc += item.price * item.quantity)
@@ -30,20 +29,26 @@ const CheckOut = () => {
         <Formik
         initialValues={{
           fullname: "",
-          email: "",
+          streetAddress: "",
+          city:"",
+          state:"",
+          phoneNumber:"",
         }}
         validationSchema={Yup.object().shape({
           fullname: Yup.string()
-            .min(2, "Your name is too short")
-            .required("Please enter your full name"),
-          email: Yup.string()
-            .email("The email is incorrect")
-            .required("Please enter your email"),
-          password: Yup.string()
-            .required("Please create some password"),
+            .required("required field"),
+          streetAddress: Yup.string()
+            .required("required field"),
+          city: Yup.string()
+            .required("required field"),
+          state: Yup.string()
+            .required("required field"),
+          phoneNumber: Yup.string()
+            .required("required field"),
         })}
         onSubmit={(values, actions) => {
-          console.log(values);
+          navigate("/PurchaseMade");
+          dispatch(clearCart());
           setFormValues(values);
 
           const timeOut = setTimeout(() => {
@@ -53,15 +58,7 @@ const CheckOut = () => {
           }, 1000);
         }}
       >
-        {({
-          values,
-          errors,
-          touched,
-          handleSubmit,
-          isSubmitting,
-          isValidating,
-          isValid,
-        }) => {
+        {({ errors, touched, handleSubmit, isSubmitting, isValid}) => {
           return (
             <>
              <FormWrapper>
@@ -82,65 +79,67 @@ const CheckOut = () => {
                     {errors.fullname}
                   </StyledInlineErrorMessage>
                 )}
-                <Label htmlFor="email">
+                <Label htmlFor="streetAddress">
                   Street Address
                   <Input
                     type="text"
-                    name="address"
-                    autoComplete="address"
+                    name="streetAddress"
+                    autoComplete="streetAddress"
                     placeholder="#440-Josua st."
-                    valid={touched.email && !errors.email}
-                    error={touched.email && errors.email}
+                    valid={touched.streetAddress && !errors.streetAddress}
+                    error={touched.streetAddress && errors.streetAddress}
                   />
                 </Label>
-                <ErrorMessage name="address">
+                <ErrorMessage name="streetAddress">
                   {(msg) => (
-                    <StyledInlineErrorMessage>{msg}</StyledInlineErrorMessage>
+                    <StyledInlineErrorMessage>
+                    {msg}
+                    </StyledInlineErrorMessage>
                   )}
                 </ErrorMessage>
-                <Label htmlFor="password">
+                <Label htmlFor="city">
                   City
                   <Input
                     type="text"
                     name="city"
-                    placeholder="Los Alamos"
-                    valid={touched.password && !errors.password}
-                    error={touched.password && errors.password}
+                    placeholder="San Antonio"
+                    valid={touched.city && !errors.city}
+                    error={touched.city && errors.city}
                   />
                 </Label>
-                {errors.password && touched.password&& (
+                {errors.city && touched.city && (
                   <StyledInlineErrorMessage>
-                    {errors.password}
+                    {errors.city}
                   </StyledInlineErrorMessage>
                 )}
-                <Label htmlFor="password">
+                <Label htmlFor="state">
                   State
                   <Input
                     type="text"
-                    name="city"
-                    placeholder="Los Alamos"
-                    valid={touched.password && !errors.password}
-                    error={touched.password && errors.password}
+                    name="state"
+                    placeholder="Texas"
+                    valid={touched.state && !errors.state}
+                    error={touched.state && errors.state}
                   />
                 </Label>
-                {errors.password && touched.password&& (
+                {errors.state && touched.state && (
                   <StyledInlineErrorMessage>
-                    {errors.password}
+                    {errors.state}
                   </StyledInlineErrorMessage>
                 )}
-                <Label htmlFor="password">
+                <Label htmlFor="phoneNumber">
                   Phone Number
                   <Input
                     type="text"
-                    name="city"
-                    placeholder="Los Alamos"
-                    valid={touched.password && !errors.password}
-                    error={touched.password && errors.password}
+                    name="phoneNumber"
+                    placeholder="469.337.2872"
+                    valid={touched.phoneNumber && !errors.phoneNumber}
+                    error={touched.phoneNumber && errors.phoneNumber}
                   />
                 </Label>
-                {errors.password && touched.password&& (
+                {errors.phoneNumber && touched.phoneNumber && (
                   <StyledInlineErrorMessage>
-                    {errors.password}
+                    {errors.phoneNumber}
                   </StyledInlineErrorMessage>
                 )}
                 <Submit type="submit" onSubmit={handleSubmit} disabled={!isValid || isSubmitting}>
@@ -177,50 +176,21 @@ const CheckOut = () => {
                     cartItems.length ? (
                         cartItems.map((item) => {
                             console.log(item);
-                            return <CartItemContainer {...item} key={item.id}>
-                                <div className="CartItem">
-                                    <div className='itemImage'>
-                                        <img src={item.image} alt={item.title}/>  
-                                    </div>
-                                        <div className="itemData">
-                                            <div className='itemDataData'>
-                                                <p className='itemTitle'>{item.title}</p>
-                                                {/* <p className="itemCategory">Category: <span>{item.category}</span></p> */}
-                                                 <span className="itemPrice">$ {item.price}</span> 
-                                            </div>
-                                            <div className="itemQuantifier">
-                                                <span className="increase" > + </span>
-                                                <span className="itemUnits">{item.quantity}</span>
-                                                <span className="decrease"> - </span>
-                                            </div>
-                                        </div>
-                                        </div>
-                            </CartItemContainer>         
+                            return <CartItemDisplay {...item} key={item.id}/>         
                         })
                     ) : (
                         <p>Cart is empty</p>
                     )
                }
                 </div>
-                 
-                
-                
                 
            </div>
            <div className="shopTotal">
-                    <p className="Shipp">Sub-Total:.....$ <b>{(subTotal + 0.00).toFixed(2)}</b></p>
-                    <p className="Shipp">shipping Cost:.$ <b>{(shippingCost + 0.00).toFixed(2)}</b></p>
-                    <p className="Shipp">Total:.........$ <b>{(subTotal + shippingCost).toFixed(2)}</b></p>      
+                    <p className="Shipp">Sub-Total:.......$ <b>{(subTotal + 0.00).toFixed(2)}</b></p>
+                    <p className="Shipp">shipping Cost:.${tab}<b>{(shippingCost + 0.00).toFixed(2)}</b></p>
+                    <p className="Shipp">Total:...............$ <b>{(subTotal + shippingCost).toFixed(2)}</b></p>      
                 </div>
           </div>
-          {/* <div className='payMethods'>
-            <div className='divCard'>
-              <h3>we accept</h3>
-              <img classname= "payimage" style={{width: "18.75rem"}}
-              src={paymentsmethods} 
-              alt='payment Methods'/>
-            </div> */}
-          {/* </div> */}
         </div>
       </div>
     </CheckOutWrapper>

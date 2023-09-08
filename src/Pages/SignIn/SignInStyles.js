@@ -51,6 +51,13 @@ button:hover {
     border: 2px #0683db;
     transition: background-color 0.5s ease-in;
 }
+
+@media (max-width: 390px) {
+    .pform {
+        margin: 0 15px;
+    }
+}
+
 `
 export const StyledLinkAccount = styled.p`
 padding: 5px 0;

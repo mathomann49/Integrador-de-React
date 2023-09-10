@@ -3,24 +3,16 @@ import styled from "styled-components";
 export const ContactContainer = styled.div`
 padding-top: 110px;
 display: flex;
-/* justify-content: center;
-align-items: center; */
 margin: auto;
 flex-direction: column;
 gap: 20px;
-.outstanding {
-    /* background-color: orange;
-    color: black;
-    padding: 7px;
-    border-radius: 3px; */
-}
+
 h1 {
     padding-top: 110px;
     padding: 12px 10px 12px 10px;
     background-color: grey;
     margin: auto;
     color: lightblue;
-    /* padding: 7px 12px; */
     border-radius: 30px;
     width: fit-content;
     align-self: center;
@@ -109,7 +101,6 @@ button:hover {
 }
 
 @media (max-width: 640px) {
-    /* padding: 10px; */
     padding-right: 0;
     padding-left: 0;
     .header {

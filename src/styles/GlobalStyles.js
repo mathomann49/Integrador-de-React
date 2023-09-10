@@ -16,7 +16,6 @@ export const GlobalStyles = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         background: #FDEDEC;
-        ${'' /* background: #d3f746; */}
         font-family: 'Arial Narrow Bold', sans-serif;
         color: gray;
     }

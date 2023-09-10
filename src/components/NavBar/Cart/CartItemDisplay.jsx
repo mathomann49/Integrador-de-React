@@ -16,7 +16,6 @@ const CartItemDisplay = ({image, title, category, price, quantity, id}) => {
         <div className="itemData">
             <div className='itemDataData'>
                 <p className='itemTitle'>{title}</p>
-                {/* <p className="itemCategory">Category: <span>{item.category}</span></p> */}
                 <span className="itemPrice">$ {adjustedPrice(price)}</span> 
                 </div>
                 <div className="itemQuantifier">

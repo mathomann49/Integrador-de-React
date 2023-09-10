@@ -34,7 +34,7 @@ const Cart = () => {
                     {
                     cartItems.length ? (
                         cartItems.map((item) => {
-                            console.log(item);
+                            
                             return <CartItemDisplay {...item} key={item.id}/>                        
                         })
                     ) : (

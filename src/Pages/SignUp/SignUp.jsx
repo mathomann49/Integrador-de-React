@@ -19,7 +19,6 @@ const SignUp = () => {
     <SignUpWrapper>
       <div>
         <h1>Create Account</h1>
-        {/* <hr></hr> */}
       </div>
      
 
@@ -56,12 +55,10 @@ const SignUp = () => {
         }}
       >
         {({
-          values,
           errors,
           touched,
           handleSubmit,
           isSubmitting,
-          isValidating,
           isValid,
         }) => {
           return (

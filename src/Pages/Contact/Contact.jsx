@@ -7,7 +7,6 @@ const Contact = () => {
     <ContactContainer>
       <div>
         <h1>Contact <span className='outstanding'>Us</span></h1>
-        {/* <hr></hr> */}
       </div>
       
       <div className='header'>

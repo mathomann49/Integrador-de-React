@@ -53,7 +53,7 @@ const NavBar = () => {
           </MenuContainerStyled>
       </div>  
       
-      {OpenCart && <Cart onClick= {() => dispatch(toggleHiddenCart())}/>}    
+      {!OpenCart && <Cart onClick= {() => dispatch(toggleHiddenCart())}/>}    
     </NavBarContainerStyled>
     
   )

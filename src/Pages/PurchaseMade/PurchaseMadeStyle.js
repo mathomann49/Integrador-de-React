@@ -11,7 +11,7 @@ justify-content: center;
 .infoBox {
     padding: 10px;
     margin: 150px auto;
-    width: 300px;
+    width: 290px;
     display: flex;
     flex-direction: column;
     align-items: center;

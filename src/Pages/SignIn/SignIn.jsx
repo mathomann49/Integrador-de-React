@@ -55,12 +55,10 @@ const SignIn = () => {
         }}
       >
         {({
-          values,
           errors,
           touched,
           handleSubmit,
           isSubmitting,
-          isValidating,
           isValid,
         }) => {
           return (

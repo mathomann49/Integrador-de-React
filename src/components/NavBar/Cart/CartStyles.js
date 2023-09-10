@@ -4,7 +4,6 @@ export const CartWrapper = styled.div`
 position: fixed;
 top: 85px;
 left: 0;
-/* right: 128px;  */
 display: flex;
 width: 100vw;
 height: calc(100vh - 85px);
@@ -12,9 +11,7 @@ background-color: #111111bd;
 opacity: 0,4;
 transition: opacity 0.4s;
 z-index: 2;
-/* align-items: center;
-justify-content: center;
-flex-direction: column; */
+
 .cartContainer {
     position: fixed;
     top: 85px;
@@ -28,7 +25,6 @@ flex-direction: column; */
     padding-bottom: 100px;
     align-items: center;
     height: calc(100vh - 85px);
-    // overflow: auto;
     justify-content: center;
     background: #EBDEF0;
     transition: all 0.5s ease-out;
@@ -37,10 +33,9 @@ flex-direction: column; */
     display: flex;
     flex-direction: column;
     width: 95%;
-    // height: 300px;
     overflow: scroll;
     &::-webkit-scrollbar {
-        background: transparent;
+        display: none;
     }
     &::-webkit-scrollbar :horizontal {
         display: none;
@@ -89,8 +84,6 @@ flex-direction: column; */
 `
 export const CartItemContainer = styled.div`
 display: flex;
-// height: 500px;
-// overflow: auto;
 width: 95%;
 align-items: center;
 justify-content: center;
@@ -98,6 +91,7 @@ z-index: 20;
 border: solid 1px black;
 border-radius: 5px;
 gap: 10px;
+
        
     
     .CartItem,

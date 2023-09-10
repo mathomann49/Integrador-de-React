@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import SmilingPeople from "../../Smiling-people.png"
+// import SmilingPeople from "../../Smiling-people.png"
 
 export const  HeroSectionStyled = styled.section`
 display: flex;
@@ -46,9 +46,9 @@ p {
 @media (max-width: 1000px) {
     width: 80%;
     height: 60vh;
-    background-image: url(${SmilingPeople});
+    background-image: url(https://us.123rf.com/450wm/dolgachov/dolgachov1704/dolgachov170401437/76188741-concepto-de-diversidad-elecci%C3%B3n-etnia-y-personas-grupo-internacional-de-hombres-y-mujeres.jpg?ver=6);
     background-size: auto;
-    /* background-repeat: no-repeat;  */
+    background-repeat: no-repeat; 
     /* opacity: 0.4; */
     justify-content: center;
     align-items: center;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardProducts, StyledButton } from './ProductsStyles';
+import { CardProducts } from './ProductsStyles';
 import { useSelector } from 'react-redux';
 import { Link  } from "react-router-dom";
 
@@ -18,7 +18,6 @@ const CardProduct = () => {
             <h5>{title}</h5>
             <h6><b>Category:</b> {category}</h6>
             <p>$ {price}</p>
-            {/* <StyledButton>see more</StyledButton> */}
         </div>
       </Link>
         

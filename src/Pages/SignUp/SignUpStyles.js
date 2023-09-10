@@ -62,7 +62,6 @@ display: flex;
 `
 
 export const Label = styled.label`
-  /* margin-top: 5rem; */
   width: 280px;
   font-weight: bold;
 `;
@@ -76,7 +75,6 @@ export const Input = styled(FilteredPropsInputField)`
   font-style: normal;
   font-weight: 400;
   width: 280px;
-  /* margin-top: 0.5rem; */
   padding: 0.5rem 0.5rem;
 
   &:focus,

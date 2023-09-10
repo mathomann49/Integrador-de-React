@@ -2,7 +2,6 @@ import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home";
-// import Products from "./components/Products";
 import Contact from "./Pages/Contact/Contact";
 import SignIn from "./Pages/SignIn/SignIn";
 import NotFound from "./Pages/NotFound/NotFound";

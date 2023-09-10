@@ -36,21 +36,18 @@ place-content: center;
 justify-content: center;
 grid-template-columns: repeat(auto-fit, 220px);
 row-gap: 1.5rem;
-/* column-gap: -3.5rem; */
 width: 100%;
 max-width: 1300px;
-/* cursor: pointer; */
-/* padding: 1rem 0; */
+
 `
 export const CardProducts = styled.div`
 width: 200px;
-/* padding: 1rem; */
 border: 1px solid grey;
 border-radius: 0 0 10px 10px;
 img {
     width: 100%;
     height: 260px;
-    /* margin-bottom: 1rem; */
+    
 }
 .cardBody {
     display: flex;
@@ -81,7 +78,7 @@ button {
     border-radius: 3px;
     padding: 10px 0;
     cursor: pointer;
-    /* margin: 20px;  */
+    
 }
 button:hover {
     background-color: wheat;

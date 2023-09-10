@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import CartItemDisplay from '../../components/NavBar/Cart/CartItemDisplay';
-import { CheckOutWrapper } from "./CheckOutStyles";
+import { CheckOutWrapper, FormWrapper, Submit  } from "./CheckOutStyles";
 import { Formik, Form, ErrorMessage } from "formik";
 import paymentsmethods from "../../pay_methods.png";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Label, Input, StyledInlineErrorMessage, Submit, FormWrapper } from '../SignUp/SignUpStyles'
+import { Label, Input, StyledInlineErrorMessage } from '../SignUp/SignUpStyles'
 import * as Yup from "yup";
 import { clearCart } from "../../redux/cart/CartSlice";
 
@@ -148,7 +148,7 @@ const CheckOut = () => {
               </Form>
              </FormWrapper>
               
-              <hr />
+             <hr/>
               
             </>
           );
@@ -156,15 +156,15 @@ const CheckOut = () => {
       </Formik>
       <div className='payMethods'>
             <div className='divCard'>
-              {/* <h3>we accept</h3> */}
-              <img classname= "payimage" style={{ height: "70px"}}
+              <img className= "payimage" style={{ height: "70px"}}
               src={paymentsmethods} 
               alt='payment Methods'/>
             </div>
           </div>
         </div>
+        
         <div className='selectCart'>
-        <div>
+        <div className='titlePage'>
         <h1>Check Out</h1>
       </div>
           <div className='cardProductsCheckOut'>

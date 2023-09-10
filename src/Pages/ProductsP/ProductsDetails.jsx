@@ -18,7 +18,7 @@ const ProductsDetails = () => {
     setLoading(true);
     const result = await axios.get(`https://fakestoreapi.com/products/${id}`);
     const data = await result.data;
-    console.log(data);
+    // console.log(data);
     setData(data);
     setLoading(false)}
     catch (err) {

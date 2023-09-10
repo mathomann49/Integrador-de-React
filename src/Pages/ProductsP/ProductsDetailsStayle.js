@@ -1,23 +1,18 @@
 import styled from "styled-components";
 
 export const WrapperDetails = styled.div`
-margin: 0;
+/* margin: 0 50px; */
 padding: 0;
 display: flex;
-// gap: 10px;
 align-items: center;
 justify-content: center;
 flex-wrap: wrap;
-max-width: 1300px;
+max-width: 1100px; 
 width: 100%;
-/* height: 100vh; */
 padding-bottom: 30px;
 
 .container {
     margin-top: 100px;
-    // padding: 10px;
-    /* width: 70%; */
-    /* width: 1000px; */
     width: 800px;
     display: flex;
     border: 2px solid black;
@@ -61,16 +56,12 @@ padding-bottom: 30px;
     border: solid 1px black;
     border-radius: 3px;
     font-weight: bold;
-    /* width: 18%; */
     width: 65px;
     background-color: grey;
     color: white;
 }
 
-p {
-    /* max-height: 210px; */
-    /* max-height: 250px;    */
-}
+
 
 .controls {
     padding-top: 7px;
@@ -98,11 +89,10 @@ button:hover {
 }
 
 @media (max-width: 840px) {
-    /* height: unset; */
-    /* padding-bottom: 30px; */
+    
     .container {
         flex-direction: column;
-        /* width: 500px; */
+        
         width: 90%;
     }
     .imageContainer,
@@ -118,8 +108,6 @@ button:hover {
     .picture {
         display: flex;
         margin: auto;
-        /* padding: 0 50px; */
-        /* justify-content: center; */
         align-self: center;
     }
 
@@ -133,24 +121,16 @@ button:hover {
     .middle {
     flex-direction: column;
     justify-content: flex-start;
-    /* padding-right: 7px; */
+    
 }
 
-    p {
-    /* max-height: 210px; */
-    /* max-height: 290px;    */
-}
-    /* height: unset;
-    padding-bottom: 30px; */
+    
     
     .picture {
         width: 95%;
         height: 95%;
     }
-    .infoContainer {
-        /* margin-bottom: 20px;
-        gap: 10px; */
-    }
+    
     
 }
 `

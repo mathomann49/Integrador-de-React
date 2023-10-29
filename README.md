@@ -26,7 +26,9 @@ Muestra productos, permite registrar y loguear usuarios, simula una venta sin pa
   }</pre>
   
 ###   My Global-API. Documentacion
-<p>Para aceder a la documentacion de los distintos End Points que ofrece la API utilizada, visita: https://documenter.getpostman.com/view/28938208/2s9YJdXNXi
+<p>Para aceder a la documentacion de los distintos End Points que ofrece la API utilizada, como así tambien el correstpondiente repositorio, visita: 
+    https://documenter.getpostman.com/view/28938208/2s9YJdXNXi
+    https://github.com/mathomann49/trabajo-integrador-Backend-MyglobalAPI
 </p>
 
 ### Agradecimiento

@@ -8,8 +8,10 @@ import { useNavigate } from "react-router-dom";
 import { Label, Input, StyledInlineErrorMessage } from '../SignUp/SignUpStyles'
 import * as Yup from "yup";
 import { clearCart } from "../../redux/cart/CartSlice";
+import { createPurchase } from '../../axios/axios-purchases';
 
 const CheckOut = () => {
+    const {currentUser} = useSelector(state => state.user);
     const tab = '\u00A0\u00A0\u00A0';
     const {cartItems, shippingCost} = useSelector(state => state.cart); 
     const dispatch = useDispatch();
@@ -46,10 +48,28 @@ const CheckOut = () => {
           phoneNumber: Yup.string()
             .required("required field"),
         })}
-        onSubmit={(values, actions) => {
-          navigate("/PurchaseMade");
-          dispatch(clearCart());
-          setFormValues(values);
+        onSubmit={async (values, actions) => {
+          const purchaseData = {
+            items: cartItems,
+            subTotal,
+            shippingCost,
+            total: subTotal + shippingCost,
+            shippingDetails: {
+              ...values
+            }
+          };
+
+          try{
+            await createPurchase(purchaseData, dispatch, currentUser);
+            navigate("/PurchaseMade");
+            dispatch(clearCart());
+            setFormValues(values);
+          } catch (error) {
+            console.log(error);
+            alert("Error creating purchase")
+          }
+
+          
 
           const timeOut = setTimeout(() => {
             actions.setSubmitting(false);

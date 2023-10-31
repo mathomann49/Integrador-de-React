@@ -16,19 +16,20 @@ const ProductsDetails = () => {
   const getDetails = async () => {
     try {
     setLoading(true);
-    const result = await axios.get(`https://fakestoreapi.com/products/${id}`);
-    const data = await result.data;
+    // const result = await axios.get(`https://fakestoreapi.com/products/${id}`);
+    const result = await axios.get(`https://trabajo-integrador-backend-myglobal-api.vercel.app/products/${id}`);
+    const data = await result.data.product;
     // console.log(data);
     setData(data);
     setLoading(false)}
-    catch (err) {
-      alert( "Try again in a few minutes" );
+    catch (error) {
+      alert( error, "Try again in a few minutes" );
   };
 }
 
   useEffect(() => {
     getDetails();
-    console.log("useEffect");
+    // console.log("useEffect");
   }, [])
 
   

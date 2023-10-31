@@ -11,7 +11,7 @@ import Loader from "../../Pages/ProductsP/Loader";
 
 const Products = () => {
   const products = useSelector((state) => state.products.products);
-
+  // console.log(products);
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
   const [loading, setLoading] = useState(false);
@@ -24,11 +24,12 @@ const Products = () => {
       const fetchProducts = async () => {
         try {
            setLoading(true);
-         const response = await axios.get("https://fakestoreapi.com/products")
-        dispatch(getProducts(response.data));
+        //  const response = await axios.get("https://fakestoreapi.com/products")
+         const response = await axios.get("https://trabajo-integrador-backend-myglobal-api.vercel.app/products")
+        dispatch(getProducts(response.data.products));
         if (componentMounted) {
-                  setData(response.data)
-                  setFilter(response.data);
+                  setData(response.data.products)
+                  setFilter(response.data.products);
                   setLoading(false);
                   // console.log("useEffect", fetchProducts);
               }  
@@ -36,7 +37,7 @@ const Products = () => {
                   setComponentMounted(false);
                 };
         } catch (error) {
-          alert("Try again in a few minutes" )
+          alert(error, "Try again in a few minutes" )
         }
         
       }; 

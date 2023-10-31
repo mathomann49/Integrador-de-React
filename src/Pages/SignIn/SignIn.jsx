@@ -41,7 +41,7 @@ const SignIn = () => {
           const user = await signInUser(values.email, values.password);
           if (user) {
             dispatch(setCurrentUser({
-              ...user.usuario,
+              ...user.user,
               token: user.token
             }))
           }

@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const WrapperDetails = styled.div`
-/* margin: 0 50px; */
+/* margin-left: 150px; */
 padding: 0;
 display: flex;
 align-items: center;
 justify-content: center;
 flex-wrap: wrap;
-max-width: 1100px; 
+max-width: 1300px; 
 width: 100%;
 padding-bottom: 30px;
 

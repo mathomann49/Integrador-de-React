@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Formik, Form, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
+import { setCurrentUser } from "../../redux/user/user";
+import { useDispatch } from "react-redux";
 import { SignUpWrapper,
   Label,
   Input,
@@ -10,8 +12,11 @@ import { SignUpWrapper,
 import * as Yup from "yup";
 import { createUser } from "../../axios/axios-user.js"
 
+
+
 const SignUp = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [formValues, setFormValues] = useState();  
   const regEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/; 
 
@@ -28,6 +33,7 @@ const SignUp = () => {
           email: "",
           password: "",
         }}
+
         validationSchema={Yup.object().shape({
           fullname: Yup.string()
             .min(2, "Your name is too short")
@@ -42,9 +48,10 @@ const SignUp = () => {
         onSubmit={async (values, actions) => {
           const user = await createUser(values.fullname, values.email, values.password);
           actions.resetForm();
-          if (user) { navigate("/SignIn")}
-          // console.log(user);
-         
+          if (user) { 
+            dispatch(setCurrentUser({ ...user.user}));
+          console.log(user);
+         navigate("/VerifyUser/VerifiedUser");}
           setFormValues(values);
 
           const timeOut = setTimeout(() => {
@@ -130,5 +137,6 @@ const SignUp = () => {
     </SignUpWrapper>
   )
 }
+
 
 export default SignUp

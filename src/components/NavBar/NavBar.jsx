@@ -39,7 +39,11 @@ const NavBar = () => {
           <Link to= "/"><li className='links'>Home</li></Link>
           <Link to= "/Products"><li className='links'>Products</li></Link>
           <Link to= "/Contact"><li className='links'>Contact</li></Link>
-          <Link to= "/SignUp"><li><StyledButton>sign up</StyledButton></li></Link>
+          
+          <li >{currentUser ? 
+            <Link to= "/Purchases"><StyledButton>My purchases</StyledButton></Link> : 
+            <Link to= "/SignUp"><StyledButton>sign up</StyledButton></Link>}
+          </li>
           <li>{currentUser ? 
             <ModalSignIn /> : 
             <StyledButton 

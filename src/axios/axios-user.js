@@ -1,10 +1,10 @@
 import axios from "axios";
 import { BASE_URL } from "../redux/cart/Utils";
 
-export const createUser = async (nombre, email, password) => {
+export const createUser = async (name, email, password) => {
     try {
       const response = await axios.post(`${BASE_URL}auth/register`, {
-        nombre,
+        name,
         email,
         password,
       });
@@ -25,4 +25,18 @@ export const signInUser = async (email, password) => {
         console.log(error);
         return alert(error.response.data.msg);
     }
+};
+
+export const verifyUser = async (email, code) => {
+  try {
+    const response = await axios.patch(`${BASE_URL}auth/verify`, {
+      email,
+      code,
+    });
+    console.log('Usuario verificado');
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    return alert(error.response.data.msg);
+  }
 };

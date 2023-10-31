@@ -73,7 +73,8 @@ export const StyledButton = styled.button`
     border-radius: 5px;
     background-color: ${(props)=> props.variant === "outline" ? "#FFF" : "#42A5F5"};
     color:  ${(props)=> props.variant === "outline" ? " #42A5F5" : "#FFF"};
-    padding: 10px 22px;
+    /* padding: 10px 22px; */
+    padding: 10px 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -123,7 +124,7 @@ export const LoginModal = styled.div`
 display: flex;
 flex-direction: column;
 width: 100px;
-color: black;
+color: #42A5F5;
 z-index: 1000;
 padding-top: 10px;
 gap: 5px;
@@ -133,10 +134,10 @@ span {
 }
 
 .close {
-    color: black;
+    color: #42A5F5;
     cursor: pointer;
     &:hover {
-            color: white;
+            color: black;
             text-decoration: underline;
         } 
 }

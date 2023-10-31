@@ -20,6 +20,10 @@ justify-content: center;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
+
+.infoBox p {
+    padding: 0 20px;
+}
 .info {
     display: flex;
     flex-direction: column;
@@ -28,7 +32,7 @@ justify-content: center;
     padding: 0;
 }
 button {
-    width: 100%;
+    width: 90%;
     font-weight: bold;
     background: #0683db;
     border-radius: 3px;

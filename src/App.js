@@ -11,6 +11,9 @@ import ProductsDetails from "./Pages/ProductsP/ProductsDetails";
 import CheckOut from "./Pages/CheckOut/CheckOut";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import PurchaseMade from "./Pages/PurchaseMade/PurchaseMade";
+import VerifyUser from "./Pages/VerifyUser/VerifyUser";
+import VerifiedUser from "./Pages/VerifyUser/VerifiedUser";
+import Purchases from "./Pages/Purchases/Purchases";
 
 function App() {
   return ( 
@@ -25,7 +28,9 @@ function App() {
         <Route path= "/SignIn" element={<SignIn />}/>
         <Route path= "/SignUp" element={<SignUp />}/>
         <Route path= "/PurchaseMade" element={<PurchaseMade />}/>
-
+        <Route path= "/VerifyUser/VerifyUser" element={<VerifyUser />}/>
+        <Route path= "/VerifyUser/verifiedUser" element={<VerifiedUser />}/>
+        <Route path= "/Purchases" element={<Purchases />}/>
         <Route 
         path= "/CheckOut" 
         element={ <ProtectedRoute redirectTo={"/SignIn"}>

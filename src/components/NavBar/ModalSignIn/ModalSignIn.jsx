@@ -9,9 +9,9 @@ const ModalSignIn = () => {
     const currentUser = useSelector(state => state.user.currentUser);
   return (
     <LoginModal>
-        <span><FaUser /> {currentUser.nombre}</span>
+        <span><FaUser /> {currentUser.name}</span>
         <span className='close' onClick={() => 
-        dispatch(setCurrentUser(null))}><FaUserSlash /> Sign out</span>
+        dispatch(setCurrentUser(null))}><FaUserSlash />Sign out</span>
     </LoginModal>
   )
 }
